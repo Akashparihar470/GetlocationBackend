@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const connect = require("./src/config/db");
-const api = require('./src/controllers/serviceProvider.controller');
-const customer = require('./src/controllers/customer.controller');
+const user = require("./src/controllers/user.controller")
 const PORT = process.env.PORT || 5500;
 var cors = require('cors');
 const app = express();
@@ -13,8 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
-app.use("/api",api);
-app.use("/customer",customer)
+
+app.use("/user",user)
 
 
 app.get('', async (req,res) => {
