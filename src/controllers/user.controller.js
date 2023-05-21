@@ -42,7 +42,7 @@ router.put('/findcustomer/:id', async(req, res) => {
 
    try{
      const updateServiceProvider  = await userModel.findByIdAndUpdate(req.params.id,{coordinates:req.body.coordinates});
-     const allLocations = await userModel.find({type:req.body.type});
+     const allLocations = await userModel.find({type:req.body.type, category:req.body.category});
 
      // Calculate the distance between the user's location and each location in the database
      const locationsWithinRadius = allLocations.filter(location => {
